@@ -10,14 +10,22 @@ function App() {
   const incrementLocation = (loc) => {
     setLocation({ x: loc.x + 1, y: loc.y });
   }
-  // const decrementLocation = (loc) => {
-  //   setLocation({ x: loc.x - 1, y: loc.y });
-  // }
+  const decrementLocation = (loc) => {
+    setLocation({ x: loc.x - 1, y: loc.y });
+  }
 
   const handleTextChange = (e, loc) => {
     if (loc.x < row_len) {
       e.target.nextElementSibling.focus();
       incrementLocation(loc)
+    }
+  }
+
+  const handleKeyDown = (e, loc) => {
+    console.log(e);
+    if (e.code === "Backspace") {
+      decrementLocation(loc);
+      e.target.prevElementSibling.focus();
     }
   }
 
@@ -27,12 +35,12 @@ function App() {
         <header>
           <h1 className="title">Wordle!</h1>
         </header>
-        <Row handleTextChange={handleTextChange} location={location} autoFocusOnFirst={true} />
-        <Row handleTextChange={handleTextChange} location={location} />
-        <Row handleTextChange={handleTextChange} location={location} />
-        <Row handleTextChange={handleTextChange} location={location} />
-        <Row handleTextChange={handleTextChange} location={location} />
-        <Row handleTextChange={handleTextChange} location={location} />
+        <Row handleKeyDown={handleKeyDown} handleTextChange={handleTextChange} location={location} autoFocusOnFirst={true} />
+        <Row handleKeyDown={handleKeyDown} handleTextChange={handleTextChange} location={location} />
+        <Row handleKeyDown={handleKeyDown} handleTextChange={handleTextChange} location={location} />
+        <Row handleKeyDown={handleKeyDown} handleTextChange={handleTextChange} location={location} />
+        <Row handleKeyDown={handleKeyDown} handleTextChange={handleTextChange} location={location} />
+        <Row handleKeyDown={handleKeyDown} handleTextChange={handleTextChange} location={location} />
       </div>
     </div>
   );

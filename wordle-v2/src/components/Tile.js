@@ -1,5 +1,6 @@
 
 const Tile = (prop) => {
+    const nullMethod = () => { };
     return (
         <input
             autoFocus={prop.autoFocus}
@@ -7,7 +8,8 @@ const Tile = (prop) => {
             type="text"
             maxLength={1}
             onChange={(e) => prop.handleTextChange(e, prop.location)}
-            onKeyPress={(e) => prop.handleBackSpace(e, prop.location)}
+            onKeyDown={(e) => prop.handleKeyDown(e, prop.location)}
+            onClick={nullMethod}
         />
     )
 }
