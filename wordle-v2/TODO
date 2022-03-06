@@ -1,3 +1,2 @@
-1. Shift focus to prior Tile on backspace press.
-2. Target word creation.
-3. Logic for comparing row with target word and formatting row.
+1. Target word creation.
+2. Logic for comparing row with target word and formatting row.

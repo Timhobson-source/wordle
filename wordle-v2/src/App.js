@@ -16,7 +16,10 @@ function App() {
 
   const handleTextChange = (e, loc) => {
     console.log(e);
-    if (loc.x < row_len) {
+    if (e.nativeEvent.inputType === 'deleteContentBackward') {
+      // do nothing  
+    }
+    else if (loc.x < row_len) {
       e.target.nextElementSibling.focus();
       incrementLocation(loc)
     }
@@ -29,8 +32,10 @@ function App() {
   const handleKeyDown = (e, loc) => {
     console.log(e);
     if (e.code === "Backspace") {
+      console.log(loc)
       decrementLocation(loc);
-      e.target.prevElementSibling.focus();
+      console.log(loc)
+      e.target.previousSibling.focus();
     }
   }
 
