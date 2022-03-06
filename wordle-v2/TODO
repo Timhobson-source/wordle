@@ -1,2 +1,2 @@
-1. Target word creation.
+1. Change logic so only moves to next line if enter is pressed.
 2. Logic for comparing row with target word and formatting row.
