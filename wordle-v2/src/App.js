@@ -14,7 +14,7 @@ function App() {
   const [location, setLocation] = useState({ x: 1, y: 1 })
 
   const handleCompeteRow = (e) => {
-    console.log("Handling row.");
+    console.log("Handling complete row.");
   }
 
   const handleTextChange = (e, loc) => {
@@ -26,19 +26,19 @@ function App() {
       e.target.nextElementSibling.focus();
       setLocation({ x: loc.x + 1, y: loc.y });
     }
-    else if (loc.x === row_len) {
-      handleCompeteRow(e);
-      if (loc.y < col_len) {
-        console.log(e.target.parentElement.nextElementSibling.firstChild.focus());
-        setLocation({ x: 1, y: loc.y + 1 })
-      }
-    }
   }
 
   const handleKeyDown = (e, loc) => {
     if (e.code === "Backspace" && loc.x > 1) {
       setLocation({ x: loc.x - 1, y: loc.y });
       e.target.previousSibling.focus();
+    }
+    if (e.code === "Enter" && loc.x > row_len) {
+      handleCompeteRow(e);
+      if (loc.y < col_len) {
+        console.log(e.target.parentElement.nextElementSibling.firstChild.focus());
+        setLocation({ x: 1, y: loc.y + 1 });
+      }
     }
   }
 
