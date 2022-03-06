@@ -1,11 +1,21 @@
 import { useState } from 'react';
 import Row from './components/Row';
+import WORDS from './words/words';
 
 function App() {
+  function createTargetWord(words) {
+    return words[3];
+  }
+  const target = createTargetWord(WORDS);
+
   const row_len = 5;
   const col_len = 6;
 
   const [location, setLocation] = useState({ x: 1, y: 1 })
+
+  const handleCompeteRow = (e) => {
+    console.log("Handling row.");
+  }
 
   const handleTextChange = (e, loc) => {
     console.log(e);
@@ -16,9 +26,12 @@ function App() {
       e.target.nextElementSibling.focus();
       setLocation({ x: loc.x + 1, y: loc.y });
     }
-    else if (loc.x === row_len && loc.y < col_len) {
-      console.log(e.target.parentElement.nextElementSibling.firstChild.focus());
-      setLocation({ x: 1, y: loc.y + 1 })
+    else if (loc.x === row_len) {
+      handleCompeteRow(e);
+      if (loc.y < col_len) {
+        console.log(e.target.parentElement.nextElementSibling.firstChild.focus());
+        setLocation({ x: 1, y: loc.y + 1 })
+      }
     }
   }
 
