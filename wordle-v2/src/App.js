@@ -7,13 +7,6 @@ function App() {
 
   const [location, setLocation] = useState({ x: 1, y: 1 })
 
-  const incrementLocation = (loc) => {
-    setLocation({ x: loc.x + 1, y: loc.y });
-  }
-  const decrementLocation = (loc) => {
-    setLocation({ x: loc.x - 1, y: loc.y });
-  }
-
   const handleTextChange = (e, loc) => {
     console.log(e);
     if (e.nativeEvent.inputType === 'deleteContentBackward') {
@@ -21,7 +14,7 @@ function App() {
     }
     else if (loc.x < row_len) {
       e.target.nextElementSibling.focus();
-      incrementLocation(loc)
+      setLocation({ x: loc.x + 1, y: loc.y });
     }
     else if (loc.x === row_len && loc.y < col_len) {
       console.log(e.target.parentElement.nextElementSibling.firstChild.focus());
@@ -30,9 +23,8 @@ function App() {
   }
 
   const handleKeyDown = (e, loc) => {
-    console.log(e);
     if (e.code === "Backspace" && loc.x > 1) {
-      decrementLocation(loc);
+      setLocation({ x: loc.x - 1, y: loc.y });
       e.target.previousSibling.focus();
     }
   }
