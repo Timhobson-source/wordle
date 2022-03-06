@@ -31,10 +31,8 @@ function App() {
 
   const handleKeyDown = (e, loc) => {
     console.log(e);
-    if (e.code === "Backspace") {
-      console.log(loc)
+    if (e.code === "Backspace" && loc.x > 1) {
       decrementLocation(loc);
-      console.log(loc)
       e.target.previousSibling.focus();
     }
   }
