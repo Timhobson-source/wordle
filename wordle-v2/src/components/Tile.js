@@ -10,7 +10,7 @@ const Tile = (prop) => {
             onChange={(e) => prop.handleTextChange(e, prop.location)}
             onKeyDown={(e) => prop.handleKeyDown(e, prop.location)}
             onClick={nullMethod}
-            style={{ "text-transform": "uppercase" }}
+            style={{ "textTransform": "uppercase" }}
         />
     )
 }

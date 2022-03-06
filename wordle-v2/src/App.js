@@ -3,7 +3,7 @@ import Row from './components/Row';
 
 function App() {
   const row_len = 5;
-  // const col_len = 6;
+  const col_len = 6;
 
   const [location, setLocation] = useState({ x: 1, y: 1 })
 
@@ -15,9 +15,14 @@ function App() {
   }
 
   const handleTextChange = (e, loc) => {
+    console.log(e);
     if (loc.x < row_len) {
       e.target.nextElementSibling.focus();
       incrementLocation(loc)
+    }
+    else if (loc.x === row_len && loc.y < col_len) {
+      console.log(e.target.parentElement.nextElementSibling.firstChild.focus());
+      setLocation({ x: 1, y: loc.y + 1 })
     }
   }
 
