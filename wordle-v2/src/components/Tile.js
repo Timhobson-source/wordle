@@ -11,6 +11,7 @@ const Tile = (prop) => {
             onKeyDown={(e) => prop.handleKeyDown(e, prop.location)}
             onClick={nullMethod}
             style={{ "textTransform": "uppercase" }}
+            tabIndex={-1}
         />
     )
 }

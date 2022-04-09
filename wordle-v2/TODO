@@ -1,2 +1,7 @@
-1. Change logic so only moves to next line if enter is pressed.
-2. Logic for comparing row with target word and formatting row.
+- stop tab functionality in general
+- allow 6th final row submission
+- add losing screen
+- stop being able to click on not the next tile
+- Use random word from list each time
+- display win/lose screen
+- display (interactive?) keyboard of letters already used
